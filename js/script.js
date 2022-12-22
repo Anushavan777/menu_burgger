@@ -9,9 +9,9 @@ const isMobile = {
     return navigator.userAgent.match(/BlackBerry/i);
   },
 
-  i0s: function () {
+  IOS: function () {
     return navigator.userAgent.match(/iPhone iPad iPod/i);
-    return navigator.userAgent.match(/Opera Mini/i);
+    // return navigator.userAgent.match(/Opera Mini/i);
   },
 
   Opera: function () {
@@ -26,16 +26,66 @@ const isMobile = {
     return (
       isMobile.Android() ||
       isMobile.BlackBerry() ||
-      isMobile.ios() ||
+      isMobile.IOS() ||
       isMobile.Opera() ||
       isMobile.Windows()
-      );
+    );
   },
 };
 
 if (isMobile.any()) {
-    document.body.classList.add('_touch');
+  document.body.classList.add("_touch");
+
+  let menuArrows = document.querySelectorAll(".menu__arrow");
+  if (menuArrows.length > 0) {
+    for (let index = 0; [index] < menuArrows.length; index++) {
+       const menuArrow = menuArrows[index];
+
+      menuArrow.addEventListener("click", function (e) {
+        menuArrow.parentElement.classList.toggle("_active");
+      });
+    }
+  }
 } else {
-    document.body,classList.add('_pc');
-} 
-;
+  document.body.classList.add("_pc");
+}
+
+// меню бургер
+
+const iconMenu = document.querySelector('.menu__icon');
+if (iconMenu) {
+  const menuBody = document.querySelector('.menu__body');
+  iconMenu.addEventListener('click', function (e) {
+    document.body.classList.toggle('_lock')
+    iconMenu.classList.toggle('_active');
+    menuBody.classList.toggle('_active');
+
+  })
+}
+
+// прокрутка при клике
+const menuLinks = document.querySelectorAll(".menu__link[data-goto]");
+if (menuLinks.length > 0) {
+  array.array.forEach((element) => {
+    menuLinks.addEventListener("click", onMenuLinkClick);
+  });
+
+  function onMenuLinkClick(e) {
+    const menuLink = e.target;
+    if (
+      menuLinks.dataset.goto &&
+      document.querySelector(menuLinks.dataset.goto)
+    ) {
+      const gotoBlock = document.querySelector(menuLink.dataset.goto);
+      const gotoBlockValue =
+        gotoBlock.getBoundingClientRect().top +
+        pageYoffset -
+        document.querySelector("header").offsetHeight;
+      window.scrollTo({
+        top: gotoBlockValue,
+        behavior: "smooth",
+      });
+      e.preventDefault();
+    }
+  }
+}
