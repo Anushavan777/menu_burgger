@@ -275,8 +275,8 @@ body._touch .menu__arrow {
         background-color: #fff;
     }
 
-    .menu__icon::before,
-    .menu__icon::after {
+    .menu__icon::after,
+    .menu__icon::before {
         content: "";
     }
 
@@ -297,19 +297,19 @@ body._touch .menu__arrow {
         transform: scale(1) translate(0px, -50%);
     }
 
-    .menu__icon ._active span {
-        transform: scale(0) translate((0px, -50px));
+    .menu__icon._active span {
+        transform: scale(0) translate(0px, -50px);
     }
 
-    .menu__icon.menu__body._active::before {
+    .menu__icon._active::before {
         top: 50%;
         transform: rotate(-45deg) translate(0px, -50%);
-    }
+    } 
 
-    .menu__icon.menu__body._active::after {
+     .menu__icon._active::after {
         bottom: 50%;
-        transform: rotate(-45deg) translate(0px, 50%);
-    }
+        transform: rotate(45deg) translate(0px, 50%);
+     }
 
 
     /* hidden burgger line ^^^^^^^*/
@@ -329,7 +329,7 @@ body._touch .menu__arrow {
     }
 
     .menu__body._active {
-        left: 0;
+        left: 100%;
         /* transform: translate(0px, 0px); */
     }
 
