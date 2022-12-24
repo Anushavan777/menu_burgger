@@ -38,7 +38,7 @@ body {
     height: 100%;
     line-height: 1;
     font-size: 16px;
-    background-color: #333;
+    background-color: rgba(255, 255, 255, 0.717);
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
 
@@ -65,15 +65,15 @@ body._lock {
 }
 
 .page__section_1 {
-    background-color: #794f45;
+    background-color: #2e7d32;
 }
 
 .page__section_2 {
-    background-color: #77608d;
+    background-color: #6d30a5c7;
 }
 
 .page__section_3 {
-    background-color: #7a956b;
+    background-color: #161715;
 }
 
 .page__title {
@@ -105,7 +105,7 @@ body._lock {
     left: 0;
     width: 100%;
     z-index: 10;
-    background-color: #912105;
+    background-color: #1f9105;
 }
 
 .header__container {
@@ -343,7 +343,7 @@ body._touch .menu__arrow {
         top: 0;
         left: 0;
         height: 70px;
-        background-color: #912105;
+        background-color: #1f9105;
         z-index: 2;
     }
 
