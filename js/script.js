@@ -39,7 +39,7 @@ if (isMobile.any()) {
   let menuArrows = document.querySelectorAll(".menu__arrow");
   if (menuArrows.length > 0) {
     for (let index = 0; [index] < menuArrows.length; index++) {
-       const menuArrow = menuArrows[index];
+      const menuArrow = menuArrows[index];
 
       menuArrow.addEventListener("click", function (e) {
         menuArrow.parentElement.classList.toggle("_active");
@@ -48,20 +48,18 @@ if (isMobile.any()) {
   }
 } else {
   document.body.classList.add("_pc");
-  
 }
 
 // меню бургер
 
-const iconMenu = document.querySelector('.menu__icon');
+const iconMenu = document.querySelector(".menu__icon");
 if (iconMenu) {
-  const menuBody = document.querySelector('.menu__body');
-  iconMenu.addEventListener('click', function (e) {
-    document.body.classList.toggle('_lock')
-    iconMenu.classList.toggle('_active');
-    menuBody.classList.toggle('_active');
-
-  })
+  const menuBody = document.querySelector(".menu__body");
+  iconMenu.addEventListener("click", function (e) {
+    document.body.classList.toggle("_lock");
+    iconMenu.classList.toggle("_active");
+    menuBody.classList.toggle("_active");
+  });
 }
 
 // прокрутка при клике
@@ -74,7 +72,7 @@ if (menuLinks.length > 0) {
   function onMenuLinkClick(e) {
     const menuLink = e.target;
     if (
-      menuLinks.dataset.goto &&
+      // menuLinks.dataset.goto &&
       document.querySelector(menuLinks.dataset.goto)
     ) {
       const gotoBlock = document.querySelector(menuLink.dataset.goto);
@@ -90,3 +88,15 @@ if (menuLinks.length > 0) {
     }
   }
 }
+
+// mobile submenu handling
+
+const activeLink = document.querySelector(".menu__list ._active .menu__link");
+const subList = document.querySelector(".menu__sub-list");
+const subListArrow = document.querySelector("._active .menu__arrow");
+const menuBody = document.querySelector(".menu__body._active");
+activeLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  subList.classList.toggle("activeClass");
+  subListArrow.classList.toggle("activeArrow");
+});

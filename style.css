@@ -315,9 +315,6 @@ body._touch .menu__arrow {
 
 
 
-
-
-
     /* hidden burgger line ^^^^^^^*/
 
     .menu__body {
@@ -360,7 +357,8 @@ body._touch .menu__arrow {
     }
 
     .menu__list>li._active .menu__sub-list {
-        display: block;
+        /* display: block;  июом */
+        display: none;
     }
 
     .menu__link {
@@ -380,6 +378,13 @@ body._touch .menu__arrow {
         color: #000;
     }
 
+    .menu__list ul.menu__sub-list.activeClass {
+        display: block;
+    }
 
+    .activeArrow {
+        transform: rotate(180deg);
+        margin-bottom: 2px;
+    }
 
 }
